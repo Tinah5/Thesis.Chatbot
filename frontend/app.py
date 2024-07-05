@@ -47,21 +47,7 @@ if __name__ == "__main__":
     st.title('RAD-ChatBot')
      
     sidebar_settings()
-    
 
-    uploaded_file = st.file_uploader("Upload a file (txt, pdf)", type=["txt", "pdf"])
-    if uploaded_file is not None:
-        # Display uploaded file details
-        st.subheader('Uploaded File Details:')
-        file_details = {"FileName": uploaded_file.name, "FileType": uploaded_file.type, "FileSize": uploaded_file.size}
-        st.write(file_details)
-        
-        # Process the uploaded file
-        if uploaded_file.type == "text/plain":
-            content = uploaded_file.getvalue().decode("utf-8")
-            st.write("File content:")
-            st.text(content)
-        elif uploaded_file.type == "application/pdf":
-            st.info("PDF file uploaded. Processing not shown here.")
-        else:
-            st.error("Unsupported file type. Please upload a text or PDF file.")
+uploaded_file = st.file_uploader("Upload a file (txt, pdf)", type=["txt", "pdf"])
+if uploaded_file is not None:
+    st.success("File uploaded successfully. ")
